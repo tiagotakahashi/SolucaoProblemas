@@ -1,0 +1,26 @@
+﻿@model Livraria.Presentation.MVC.Models.Autor
+
+@{
+    ViewBag.Title = "Autor";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Autor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeAutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeAutor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar para a listagem", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿@model Livraria.Presentation.MVC.Models.Livro
+
+@{
+    ViewBag.Title = "Livro";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Livro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Autor.NomeAutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autor.NomeAutor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.DescricaoCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.DescricaoCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Editora.NomeEditora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Editora.NomeEditora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataLancamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataLancamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar para a listagem", "Index")
+</p>

@@ -1,0 +1,32 @@
+﻿@model Livraria.Presentation.MVC.Models.Categoria
+
+@{
+    ViewBag.Title = "Categoria";
+}
+
+<h2>Excluir</h2>
+
+<h3>Tem certeza que deseja excluir o registro?</h3>
+<div>
+    <h4>Categoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DescricaoCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescricaoCategoria)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-danger">Excluir</button> |
+            @Html.ActionLink("Voltar para a listagem", "Index")
+        </div>
+    }
+</div>
