@@ -1,4 +1,6 @@
-﻿using RockPaperScissors.Application.DTO;
+﻿using RockPaperScissors.Application.Common;
+using RockPaperScissors.Application.Common.Interfaces;
+using RockPaperScissors.Application.DTO;
 using RockPaperScissors.Application.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -10,34 +12,26 @@ namespace RockPaperScissors.Application.Services
 {
     public class Game
     {
+        private IValidator validator;
+
         public Player rps_game_winner(List<Player> _listPlayer)
         {
-            if (IsValidNumberOfPlayers(_listPlayer))
-                throw new WrongNumberOfPlayersError("Wrong number of players. Allowed just two players!");
-            else if (IsValidStrategy(_listPlayer))
-                throw new NoSuchStrategyError("There is a or more invalid strategy. Allowed strategies are just 'R','S' or 'P'.");
-            else
-                return PlayerWinner(_listPlayer);
-        }
+            validator = new Validator();
+            validator.Add(new WrongNumberOfPlayersValidateResult(_listPlayer));
+            validator.Add(new NoSuchStrategyValidateResult(_listPlayer));
+            validator.Validate();
 
-        public bool IsValidNumberOfPlayers(List<Player> _listPlayer)
-        {
-            return _listPlayer.Count() != 2;
-        }
-
-        public bool IsValidStrategy(List<Player> _listPlayer)
-        {
-            return !(_listPlayer.Where(x => x.Move.Equals("R") || x.Move.Equals("S") || x.Move.Equals("P")).Count().Equals(2));
-        }
+            return PlayerWinner(_listPlayer);
+        }        
 
         public Player PlayerWinner(List<Player> _listPlayer)
         {
             var playerOne = _listPlayer[0];
             var playerTwo = _listPlayer[1];
 
-            return ((playerOne.Move.Equals("R") && playerTwo.Move.Equals("S")) ||
-                    (playerOne.Move.Equals("S") && playerTwo.Move.Equals("P")) ||
-                    (playerOne.Move.Equals("P") && playerTwo.Move.Equals("R")) ||
+            return ((playerOne.Move.Equals(Move.Rock) && playerTwo.Move.Equals(Move.Scissors)) ||
+                    (playerOne.Move.Equals(Move.Scissors) && playerTwo.Move.Equals(Move.Paper)) ||
+                    (playerOne.Move.Equals(Move.Paper) && playerTwo.Move.Equals(Move.Rock)) ||
                     (playerOne.Move.Equals(playerTwo.Move))) ? playerOne : playerTwo;
         }
     }

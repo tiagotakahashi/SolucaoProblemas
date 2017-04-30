@@ -40,11 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Interfaces\IValidateResult.cs" />
+    <Compile Include="Common\NoSuchStrategyValidateResult.cs" />
+    <Compile Include="Common\Validator.cs" />
+    <Compile Include="Common\WrongNumberOfPlayersValidateResult.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Exceptions\NoSuchStrategyError.cs" />
     <Compile Include="Exceptions\WrongNumberOfPlayersError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Game.cs" />
+    <Compile Include="Common\Interfaces\IValidator.cs" />
     <Compile Include="Services\Tournament.cs" />
   </ItemGroup>
   <ItemGroup />

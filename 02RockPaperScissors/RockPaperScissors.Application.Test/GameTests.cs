@@ -63,7 +63,7 @@ namespace RockPaperScissors.Application.Test
         [TestMethod]
         public void PlayerOne_Winner_Rock()
         {
-            Assert.AreEqual(new Game().rps_game_winner(new List<Player>() { new Player("Mark", "R"), new Player("Dimy", "S") }).Name, "Mark");
+            Assert.AreEqual("Mark", new Game().rps_game_winner(new List<Player>() { new Player("Mark", "R"), new Player("Dimy", "S") }).Name);
         }
 
         [TestMethod]
