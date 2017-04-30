@@ -15,7 +15,8 @@ namespace Livraria.Presentation.MVC.Controllers
         public ActionResult Index()
         {
             var livro = db.Livro.Include(l => l.Autor).Include(l => l.Categoria).Include(l => l.Editora).OrderBy(x => x.Nome);
-            return View(livro.ToList());
+            ViewBag.TotalLivros = livro.Count();
+            return View(livro);
         }
 
         // GET: Livro/Details/5

@@ -6,7 +6,7 @@ namespace Livraria.Presentation.MVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Livro");
         }
     }
 }

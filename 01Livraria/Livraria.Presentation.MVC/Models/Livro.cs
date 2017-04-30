@@ -11,16 +11,16 @@ namespace Livraria.Presentation.MVC.Models
         [Required(AllowEmptyStrings = false)]
         public string Nome { get; set; }
 
-        [Display(Name = "Categoria")]
+        [Display(Name = "Categoria"), Required]
         public int IdCategoria { get; set; }
 
-        [Display(Name = "Autor")]
+        [Display(Name = "Autor"), Required]
         public int IdAutor { get; set; }
 
-        [Display(Name = "Data de Lançamento"), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Data de Lançamento"), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}"), Required]
         public DateTime DataLancamento { get; set; }
 
-        [Display(Name = "Editora")]
+        [Display(Name = "Editora"), Required]
         public int IdEditora { get; set; }
 
         
